@@ -2,9 +2,9 @@
 
 import argparse
 import logging
+import re
 import sys
 from difflib import SequenceMatcher
-import pkg_resources
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -105,22 +105,46 @@ def analyze_dependencies(requirements_file, threshold, top_packages):
     Returns:
         list: A list of tuples containing the dependency and the potential typosquatting target.
     """
-    typosquatting_risks = []
     try:
         with open(requirements_file, "r") as f:
-            dependencies = [line.strip().split("==")[0] for line in f if line.strip() and not line.startswith("#")]  # Extract package names, handling comments and versions
+            raw_lines = f.readlines()
     except FileNotFoundError:
         logging.error(f"Requirements file not found: {requirements_file}")
-        return []
+        return None
     except Exception as e:
         logging.error(f"Error reading requirements file: {e}")
-        return []
+        return None
+
+    dependencies = []
+    for line in raw_lines:
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        # A requirement is more than a name: version pins, extras and
+        # environment markers all follow it. Splitting only on "==" left
+        # "requesrs>=0.1" as the supposed package name, and the similarity
+        # test then compared that whole string and found nothing.
+        name = re.split(r"[<>=!~;\[\s]", line, maxsplit=1)[0]
+        name = re.sub(r"\[.*\]$", "", name).strip()
+        if name:
+            dependencies.append(name)
 
     popular_packages = get_top_pypi_packages(top_packages)
 
+    typosquatting_risks = []
     for dependency in dependencies:
         for popular_package in popular_packages:
-            similarity = calculate_similarity(dependency.lower(), popular_package.lower())
+            # Compare in PEP 503 normalized form so case and separator
+            # style (requests vs Requests, scikit-learn vs scikit_learn)
+            # do not hide or invent a match.
+            dep_norm = re.sub(r"[-_.]+", "-", dependency.lower())
+            pop_norm = re.sub(r"[-_.]+", "-", popular_package.lower())
+            if dep_norm == pop_norm:
+                # A package is not a typosquat of itself. Without this
+                # skip the exact, legitimate dependency scored 1.00 and
+                # was the first "risk" the tool reported.
+                continue
+            similarity = calculate_similarity(dep_norm, pop_norm)
             if similarity >= threshold:
                 typosquatting_risks.append((dependency, popular_package, similarity))
 
@@ -148,6 +172,11 @@ def main():
     logging.info(f"Analyzing dependencies in {args.requirements_file} with threshold {args.threshold} and top {args.top_packages} packages.")
 
     risks = analyze_dependencies(args.requirements_file, args.threshold, args.top_packages)
+
+    if risks is None:
+        # The file could not be read. Reporting "no risks" here would
+        # read as a clean scan of a file that was never opened.
+        sys.exit(1)
 
     if risks:
         print("Potential typosquatting risks found:")
