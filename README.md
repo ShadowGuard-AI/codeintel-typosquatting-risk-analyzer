@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # codeintel-Typosquatting-Risk-Analyzer
 Analyzes project dependencies for names that are visually similar to popular packages (e.g., 'requests' vs 'requesrs') to identify potential typosquatting risks. - Focused on Tools for static code analysis, vulnerability scanning, and code quality assurance
 
