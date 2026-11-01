@@ -54,6 +54,10 @@ def calculate_similarity(a, b):
     Returns:
         float: The similarity ratio between 0 and 1.
     """
+    # I use the general string ratio, which rewards shared runs of
+    # characters in order. It knows nothing about keyboards, so a
+    # swapped letter pair that a human spots at once can score
+    # lower than a longer name that merely shares a prefix.
     return SequenceMatcher(None, a, b).ratio()
 
 
@@ -313,6 +317,9 @@ def analyze_dependencies(requirements_file, threshold, top_packages):
                 continue
             similarity = calculate_similarity(dep_norm, pop_norm)
             if similarity >= threshold:
+                # I do not stop at the closest popular name. One dependency
+                # can be reported against several entries in the list, and the
+                # reader has to decide which one it was aiming at, if any.
                 typosquatting_risks.append((dependency, popular_package, similarity))
 
     return typosquatting_risks
@@ -346,6 +353,9 @@ def main():
         sys.exit(1)
 
     if risks:
+        # I print the risks and exit normally. A requirements file with
+        # a likely typosquat and a clean one both exit 0, so the list
+        # above is the only place the answer lives.
         print("Potential typosquatting risks found:")
         for dependency, target, similarity in risks:
             print(f"  Dependency: {dependency}, Similar to: {target}, Similarity: {similarity:.2f}")
