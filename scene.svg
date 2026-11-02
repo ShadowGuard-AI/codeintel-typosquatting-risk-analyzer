@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="The tide mill in three bands: the mill roof and the sea beyond the bank brightening slowly, the wheel turning slowly on its fixed axle while the sluice gate holds raised, and a thin sheet of water withdrawing along the ebb channel in the mud">
+<rect width="1200" height="300" fill="#f6f4eb"/>
+<rect x="0" y="0" width="1200" height="90" fill="#cede d6"><animate attributeName="fill" values="#ceded6;#e2ede6;#ceded6" dur="36s" repeatCount="indefinite"/></rect>
+<polygon points="760,90 1080,90 1050,40 790,40" fill="#3a444e"/>
+<rect x="0" y="200" width="1200" height="100" fill="#7a6852"/>
+<polygon points="80,300 420,215 500,215 300,300" fill="#6eac9b"/>
+<g transform="translate(560 165)"><g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="46s" repeatCount="indefinite"/><circle r="62" fill="none" stroke="#3a444e" stroke-width="10"/><path d="M-62 0H62M0-62V62M-44-44L44 44M44-44L-44 44" stroke="#3a444e" stroke-width="7"/><circle r="10" fill="#26303a"/><circle r="4" fill="#e86e28"/></g></g>
+<rect x="700" y="80" width="70" height="34" fill="#60543f"><animate attributeName="y" values="118;80" dur="3s" fill="freeze"/></rect>
+<rect x="728" y="42" width="6" height="40" fill="#26303a"/>
+<polygon points="120,300 430,222 470,222 260,300" fill="#9cc4b6"><animate attributeName="opacity" values="0.9;0.25" dur="30s" repeatCount="indefinite"/></polygon>
+</svg>
