@@ -1,12 +1,12 @@
-![The pond bank at low water: mud scored by the ebb channel in the foreground, the wheel and the raised sluice gate and the stone footings in the middle distance, and the mill roof and the returning sea beyond the bank, with no text, no letters, no wordmark, and no logo](intro-banner.png)
+![Hands painting fine feather detail on one decoy wing close up, a fine brush laying a rust red barb, finished decoys soft behind on the bench](intro-banner.png)
 
 # codeintel-Typosquatting-Risk-Analyzer
 
 Title block: the name above is set in Bevan in storm slate on chalk white, ruled beneath like an entry in the miller's day book. The wheel mark below stands beside this first heading only and is nowhere repeated as decoration.
 
-![One tide mill wheel with eight paddles, its axle seated in mill timbers, sea glass green water held between the paddles, one buoy orange fleck on the axle pin, and the name hand lettered below](logo.png)
+![One carved wooden decoy duck in profile on a workbench, painted mallard plumage with a green head, wood shavings at its base](logo.png)
 
-![The drained pond with the wheel on the final trapped tide, the mill on its stone footings, the sluice gate raised on its screw, millstones beside the door, grain sacks under the hoist, and the title painted on the gable board](banner.png)
+![A carver holding the newest decoy up beside a row of finished decoy ducks ranked along a bench, an unpainted cedar blank and curled shavings at the bench end](banner.png)
 
 ![The tide mill in three bands: the far band brightening slowly, the wheel turning slowly on its fixed axle, the sluice gate holding raised, and water withdrawing along the ebb channel](scene.svg)
 
