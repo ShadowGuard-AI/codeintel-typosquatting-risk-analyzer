@@ -1,13 +1,49 @@
-<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>codeintel-typosquatting-risk-analyzer</title>
-<style>@font-face{font-family:Disp;src:url(fonts/Bevan.ttf)}@font-face{font-family:Text;src:url(fonts/AlegreyaSans.ttf)}
-body{background:#f6f4eb;font-family:Text,serif;color:#26303a;margin:0}main{max-width:920px;margin:0 auto;padding:28px}
-h1,h2{font-family:Disp,sans-serif;color:#3a444e}section{background:#dcebe4;padding:18px 22px;margin:16px 0;border-radius:6px}
-img{max-width:100%}button{background:#3a444e;color:#fff;border:2px solid #e86e28;padding:10px 14px;margin:4px;border-radius:6px;font-family:Text}
-.flagged{color:#e86e28;font-weight:bold}</style></head><body><main>
-<img src="intro-banner.png" alt="The pond bank at low water: mud scored by the ebb channel in the foreground, the wheel and the raised sluice gate and the stone footings in the middle distance, and the mill roof and the returning sea beyond the bank, with no text, no letters, no wordmark, and no logo"><h1>codeintel-typosquatting-risk-analyzer</h1>
-<p>Theme: Tide Mill at Low Water. Headings in Bevan, running text in Alegreya Sans.</p>
-<img src="logo.png" alt="One tide mill wheel with eight paddles, its axle seated in mill timbers, sea glass green water held between the paddles, one buoy orange fleck on the axle pin, and the name hand lettered below"><img src="banner.png" alt="The drained pond with the wheel on the final trapped tide, the mill on its stone footings, the sluice gate raised on its screw, millstones beside the door, grain sacks under the hoist, and the title painted on the gable board">
-<img src="scene.svg" alt="The tide mill in three bands: the far band brightening slowly, the wheel turning slowly on its fixed axle, the sluice gate holding raised, and water withdrawing along the ebb channel"><div><button type="button">Check These Names</button><button type="button">Set the Likeness Threshold</button><button type="button">Set How Much of the List to Use</button><button type="button">Set the Log Level</button></div><section><h2>What the Pond Holds</h2><p>The program reads a requirements file, which defaults to requirements.txt when no path is supplied, strips blank lines and comment lines, and takes each dependency name by splitting the line at the first version mark, extra bracket, marker, or space. Each name is normalised in the PEP 503 manner, so that case and the choice between hyphen, underscore, and full stop cannot hide a likeness, and compared, by the SequenceMatcher ratio from difflib, against a fixed list of 183 widely downloaded PyPI names written inside main.py. That list is never fetched and never queried against any index at run time.</p></section><section><h2>How a Name Is Taken</h2><p>A name identical to a list entry, once normalised, is skipped, since a package cannot be a squat upon itself. Every comparison scoring at or above the threshold is reported, and one dependency may appear against several list entries. The threshold defaults to 0.8, the list portion defaults to the first 20 entries, asking for more than 183 entries draws a warning and uses the whole list, and the log level defaults to INFO among DEBUG, INFO, WARNING, ERROR, and CRITICAL.</p></section><section><h2>Likenesses at or Above the Threshold</h2><p>Colour performs the judgement on this page: buoy orange is reserved solely for a name that has been flagged as a close likeness. The corrected usage is python3 main.py with an optional requirements file path and the options named in the preserved record below.</p></section><section><h2>When the Run Ends</h2><p>An unreadable or missing requirements file ends the run at 1. A threshold outside the range from 0 to 1 ends it at 1. A top packages count at or below zero ends it at 1. A finished scan ends at 0 whether or not any risk was printed, the printed list being the only place where the answer lives.</p></section>
-<section><h2>Record preserved from the README</h2><p># codeintel-Typosquatting-Risk-Analyzer</p><p>Analyzes project dependencies for names that are visually similar to popular packages (e.g., &#x27;requests&#x27; vs &#x27;requesrs&#x27;) to identify potential typosquatting risks. - Focused on Tools for static code analysis, vulnerability scanning, and code quality assurance</p><p>## Install</p><p>`git clone https://github.com/ShadowStrikeHQ/codeintel-typosquatting-risk-analyzer`</p><p>## Usage</p><p>`./codeintel-typosquatting-risk-analyzer [params]`</p><p>## Parameters</p><p>- `-h`: Show help message and exit</p><p>- `--threshold`: No description provided</p><p>- `--top-packages`: How many entries of the comparison list to use (default 20)</p><p>- `--log-level`: No description provided</p><p>## The comparison list</p><p>Dependencies are compared against a fixed list of 183 widely downloaded PyPI package names written in `main.py`. The list is fixed in the source: no package index is queried and nothing is fetched at run time, so names outside that list are never compared. `--top-packages` selects how many entries of the list to use; asking for more than 183 prints a warning and uses the whole list.</p><p>## License</p><p>Copyright (c) ShadowStrikeHQ</p></section>
-<section><h2>Facts from the code, stated in the prose</h2><p>This record names: requirements.txt, SequenceMatcher, difflib, 183, 0.8, first 20 entries, DEBUG, INFO, WARNING, ERROR, and CRITICAL, python3 main.py, PEP 503.</p></section>
-</main></body></html>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>codeintel-typosquatting-risk-analyzer: The Decoy Carver's Bench</title>
+<style>@font-face{font-family:'Peralta';src:url('fonts/Peralta.ttf') format('truetype');font-weight:400;font-style:normal;}@font-face{font-family:'Fanwood Text';src:url('fonts/FanwoodText.ttf') format('truetype');font-weight:400;font-style:normal;}@font-face{font-family:'Fanwood Text';src:url('fonts/FanwoodText-Italic.ttf') format('truetype');font-weight:400;font-style:italic;}
+:root{--ground:#2a2019;--panel:#3a2d21;--head:#f1e8d8;--ink:#ece1cd;--accent:#8fae62}
+*{box-sizing:border-box}body{margin:0;background:var(--ground);color:var(--ink);font-family:'Fanwood Text',sans-serif;line-height:1.65}
+h1,h2,h3{font-family:'Peralta',serif;color:var(--head)}
+.hero img.heroimg{width:100%;height:52vh;object-fit:cover;display:block}
+.hero .in,main,footer{max-width:1120px;margin:0 auto;padding:1rem 6vw 2rem}.logo{width:210px}
+nav{display:flex;gap:1rem;flex-wrap:wrap;margin:1.2rem 0}
+.btn{display:inline-block;text-decoration:none;font-family:'Peralta',serif;color:var(--head);background:var(--panel);border:2px solid var(--accent);border-radius:10px;padding:.6rem 1.1rem}
+.btn:hover{border-color:var(--head)}.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--head)}.panel{background:var(--panel);color:var(--ink);padding:.4rem 1.5rem 1.3rem;margin:1.8rem 0;border-radius:6px}
+pre{background:#1e1712;color:var(--ink);padding:1rem;overflow-x:auto;white-space:pre-wrap}
+.flag{border-left:5px solid var(--accent);background:rgba(0,0,0,.18);padding:.6rem 1rem}
+img.rule{width:100%;height:120px;object-fit:cover;display:block}img.diag{max-width:100%}
+code{font-family:inherit;background:rgba(0,0,0,.25);padding:0 .3rem;border-radius:3px}</style>
+</head>
+<body>
+<header class="hero"><img class="heroimg" src="intro-banner.png" alt="Hands painting fine feather detail on one decoy wing close up, a fine brush laying a rust red barb, finished decoys soft behind on the bench">
+<div class="in"><img class="logo" src="logo.png" alt="One carved wooden decoy duck in profile on a workbench, painted mallard plumage with a green head, wood shavings at its base">
+<h1>codeintel-typosquatting-risk-analyzer</h1>
+<p>A wooden bird made to be mistaken for a living one, held up beside the row and judged with a critical eye.</p>
+<nav><a class="btn" href="#list">The fixed list</a><a class="btn" href="#how">How matching works</a><a class="btn" href="#params">Parameters</a><a class="btn" href="#exits">Exit codes</a></nav></div></header>
+<main>
+<img class="rule" src="banner.png" alt="A carver holding the newest decoy up beside a row of finished decoy ducks ranked along a bench, an unpainted cedar blank and curled shavings at the bench end">
+<section class="panel"><h2>What the analyzer does</h2>
+<p>The tool compares the dependency names in a requirements file against a fixed list of widely downloaded package names and reports the ones that look like near copies, run as <code>python3 main.py [REQUIREMENTS_FILE] [--threshold T] [--top-packages N] [--log-level LEVEL]</code>. The requirements file is an optional positional defaulting to requirements.txt in the working directory.</p></section><section class="panel" id="list"><h2>The fixed list of 183 names</h2>
+<p class="flag">The comparison list is 183 names written into main.py itself. No package index is queried and nothing is fetched, so a name outside the list is never compared against anything. Asking for more than 183 entries prints a warning and uses the whole list.</p></section><section class="panel" id="how"><h2>How matching works</h2>
+<p>Similarity is the difflib SequenceMatcher ratio over PEP 503 normalised names, so case and separator style neither hide nor invent a match. A name identical to a list entry once normalised is skipped as not a risk. A dependency at or above the threshold (default 0.8) is reported against every close list entry, not stopped at the closest, and the reader decides which name it was aiming at.</p></section><section class="panel" id="params"><h2>Parameters</h2>
+<ul>
+<li><code>requirements file</code>: optional positional (default requirements.txt in the working directory).</li>
+<li><code>--threshold</code>: similarity threshold (default 0.8).</li>
+<li><code>--top-packages</code>: how many entries of the comparison list to use (default 20).</li>
+<li><code>--log-level</code>: logging level.</li>
+</ul>
+<p>The README parameter list omits the positional entirely and leaves --threshold and --log-level undescribed, though the code help text describes both. That record stands as printed.</p></section><section class="panel" id="exits"><h2>Exit codes</h2>
+<p>The scan's answer never moves the exit code: risks printed and a clean file both exit 0. Exit 1 is for an unreadable file, a threshold outside 0 to 1, or a non positive top count.</p></section><section class="panel"><h2>Record notes</h2>
+<p>The README clone line names the stale ShadowStrikeHQ organisation, its usage line is a placeholder, and its closing licence line reads Copyright (c) ShadowStrikeHQ while the LICENSE file is MIT. Those lines stand as printed.</p></section>
+
+<section class="panel"><h2>Licence</h2>
+<p>The repository LICENSE file carries the MIT License.</p></section>
+</main>
+<footer><p>The Decoy Carver's Bench. Headings in Peralta, text in Fanwood Text, both under the SIL Open Font License 1.1.</p></footer>
+</body>
+</html>
